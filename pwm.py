@@ -46,9 +46,10 @@ try:
     while True:
         distToObj = getDistToObj()
 
-        if (distToObj < 50):
+        if (distToObj <= 25):
             # Increase pitch as object gets closer
-            buzzerPwm.ChangeDutyCycle(100 - (distToObj * 2))
+            buzzerPwm.ChangeDutyCycle(50)
+            buzzerPwm.Frequency(1000 - (distToObj * 40))
         else:
             # Turn buzzer off when no object is detected
             buzzerPwm.ChangeDutyCycle(0)
